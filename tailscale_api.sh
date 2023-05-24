@@ -1,4 +1,5 @@
 #!/bin/sh
+# Kacper Lipka 2023
 # install tailscale via api
 
 # Zdefiniuj zmienne
