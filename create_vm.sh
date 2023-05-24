@@ -1,4 +1,6 @@
 #!/bin/sh
+# Kacper Lipka 2023
+# Create Virtual Machine using VirtualBox
 
 alias vbm="VBoxManage"
 vm_name="TrueNAS"
