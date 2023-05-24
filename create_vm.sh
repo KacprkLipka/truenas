@@ -15,17 +15,14 @@ vbm storagectl $vm_name --name "SATA Controller" --add sata \
     --controller IntelAHCI
 
 for i in 1 2 3; do
-    vbm createhd --filename $medium_path$vm_name'/'$vm_name'_'$i.vdi \
-        --size $storage --format VDI
+    vbm createhd --filename $medium_path$vm_name'/'$vm_name'_'$i.vdi --size $storage --format VDI
 
-    vbm storageattach $vm_name --storagectl "SATA Controller" --port $i \ 
-    --device 0 --type hdd --medium $medium_path$vm_name'/'$vm_name'_'$i.vdi
+    vbm storageattach $vm_name --storagectl "SATA Controller" --port $i --device 0 --type hdd --medium $medium_path$vm_name'/'$vm_name'_'$i.vdi
 done
 
 vbm storagectl $vm_name --name "IDE Controller" --add ide
 
-vbm storageattach $vm_name --storagectl "IDE Controller" --port 0 --device 0 \
-    --type dvddrive --medium $iso_path
+vbm storageattach $vm_name --storagectl "IDE Controller" --port 0 --device 0 --type dvddrive --medium $iso_path
 
 vbm modifyvm $vm_name --memory $memory --vram 128
 vbm modifyvm $vm_name --nic1 bridged --bridgeadapter1 $bridge
