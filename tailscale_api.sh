@@ -11,7 +11,7 @@ ADVERTISE_ROUTES="192.168.1.82/32"
 AUTH=$(echo "${CREDENTIALS}" | tr -d '\n' | base64)
 
 # Wyślij zapytanie do serwera, które zainstaluje aplikacje
-curl -X 'POST' "http://${SERVER_IP}/api/v2.0/chart/release" \
+curl -X 'POST' "http://$SERVER_IP/api/v2.0/chart/release" \
     -H 'accept: application/json' \
     -H "Authorization: Basic $AUTH" \
     -H 'Content-Type: application/json' \
@@ -23,9 +23,9 @@ curl -X 'POST' "http://${SERVER_IP}/api/v2.0/chart/release" \
   "version": "1.0.2",
   "values": {
     "tailscaleConfig": {
-      "authkey": "'${AUTH_KEY}'",
+      "authkey": "'$AUTH_KEY'",
       "advertiseRoutes": [
-        "'${ADVERTISE_ROUTES}'"
+        "'$ADVERTISE_ROUTES'"
       ]
     }
   }
