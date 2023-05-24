@@ -1,4 +1,5 @@
 #!bin/sh
+# Kacper Lipka 2023
 # my-zerotier
 
 ZEROTIER=zerotier_id
