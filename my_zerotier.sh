@@ -1,6 +1,6 @@
 #!bin/sh
-# Kacper Lipka 2023
 # my-zerotier
+# Kacper Lipka 2023
 
 ZEROTIER=zerotier_id
 API_TOKEN=api_token
