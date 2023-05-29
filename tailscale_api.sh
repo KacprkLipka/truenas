@@ -15,7 +15,7 @@ AUTH=$(echo "$CREDENTIALS" | tr -d '\n' | base64)
 # Wyślij zapytanie do serwera, które zainstaluje aplikacje
 curl -X 'POST' "http://$SERVER_IP/api/v2.0/chart/release" \
     -H 'accept: application/json' \
-    -H "Authorization: bearer $API_TOKEN" \
+    -H "Authorization: Bearer $API_TOKEN" \
     -H 'Content-Type: application/json' \
     -d '{
   "catalog": "OFFICIAL",
