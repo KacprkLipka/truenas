@@ -1,15 +1,15 @@
 #!/bin/sh
-# Kacper Lipka 2023
 # install tailscale via api
+# Kacper Lipka 2023
 
 # Zdefiniuj zmienne
-SERVER_IP="192.168.1.82"
-CREDENTIALS="login:haslo"
-AUTH_KEY="klucz_tailscale"
+SERVER_IP="192.168.1.82" 
+CREDENTIALS="login:haslo" # login i hasło TrueNAS
+AUTH_KEY="klucz_tailscale" # klucz uwierzytelniający Tailscale
 ADVERTISE_ROUTES="192.168.1.82/32"
 
 # Zakoduj login:haslo w standardzie Base64
-AUTH=$(echo "${CREDENTIALS}" | tr -d '\n' | base64)
+AUTH=$(echo "$CREDENTIALS" | tr -d '\n' | base64)
 
 # Wyślij zapytanie do serwera, które zainstaluje aplikacje
 curl -X 'POST' "http://$SERVER_IP/api/v2.0/chart/release" \
