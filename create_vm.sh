@@ -1,6 +1,6 @@
 #!/bin/sh
-# Kacper Lipka 2023
 # Create Virtual Machine using VirtualBox
+# Kacper Lipka 2023
 
 alias vbm="VBoxManage"
 vm_name="TrueNAS"
@@ -13,8 +13,7 @@ bridge="wlp3s0"
 
 vbm createvm --name $vm_name --ostype $os_name --register
 
-vbm storagectl $vm_name --name "SATA Controller" --add sata \
-    --controller IntelAHCI
+vbm storagectl $vm_name --name "SATA Controller" --add sata --controller IntelAHCI
 
 for i in 1 2 3; do
     vbm createhd --filename $medium_path$vm_name'/'$vm_name'_'$i.vdi --size $storage --format VDI
